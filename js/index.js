@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import '../styles/app.css';
 
 const e = React.createElement;
 
@@ -26,7 +27,7 @@ import("../crate/pkg").then(module => {
           });
         });
 
-        return e('div', { className: 'z-depth-2' },
+        return e('div', { className: 'dbc-message z-depth-2' },
           e('h2', {key: 'h2' }, '' + this.props.name,
             e('span', {key: 'id', className: 'indigo new badge'}, 'Message ID: ' + this.props.id)
           ),

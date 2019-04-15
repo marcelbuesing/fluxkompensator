@@ -1,6 +1,7 @@
 # ECU-Web
 
-ECU-Web can currently be used as a CAN (database) DBC viewer using the [can-dbc](https://crates.io/crates/can-dbc) Rust crate for parsing DBC files.
+ECU-Web can currently be used as a CAN (database) DBC viewer.
+ECU-Web uses the [can-dbc](https://crates.io/crates/can-dbc) Rust crate for parsing DBC files via WASM.
 The DBC content is rendered using React.
 
 Example Screenshot of [J1939](https://en.wikipedia.org/wiki/SAE_J1939) dbc:
