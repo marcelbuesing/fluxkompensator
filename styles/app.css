@@ -1,5 +1,12 @@
-#app {
-    margin: 1vh 1vw;
+#app { }
+
+table {
+    width: 100%;
+}
+
+.dbc-input-dialog {
+    padding: 1vh 1vw 1vh 1vw;
+    margin-bottom: 1vh;
 }
 
 .dbc-message {
