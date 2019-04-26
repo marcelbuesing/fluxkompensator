@@ -16,9 +16,9 @@ RUN curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
 WORKDIR /usr/src/fluxkompensator
 
-RUN npm install
-
 COPY . .
+
+RUN npm install
 
 RUN npm run build
 
