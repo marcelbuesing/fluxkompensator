@@ -1,5 +1,9 @@
 # Fluxkompensator
 
+[![Build Status](https://travis-ci.org/marcelbuesing/fluxkompensator.svg?branch=master)](https://travis-ci.org/marcelbuesing/fluxkompensator)
+[![Docker Build](https://img.shields.io/docker/cloud/build/marcelbuesing/fluxkompensator.svg)](https://hub.docker.com/r/marcelbuesing/fluxkompensator)
+[![MicroBadger](https://images.microbadger.com/badges/image/marcelbuesing/fluxkompensator.svg)](https://microbadger.com/images/marcelbuesing/fluxkompensator)
+
 Fluxkompensator can currently be used as a CAN (database) DBC viewer.
 It uses the [can-dbc](https://crates.io/crates/can-dbc) Rust crate for parsing DBC files via WASM.
 The DBC content is rendered using React.
