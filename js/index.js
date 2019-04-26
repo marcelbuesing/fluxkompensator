@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/app.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from '../logo.jpg'
 
 import {MessageSignalSizeDistribution} from './ecu-charts.jsx';
 
@@ -25,9 +26,12 @@ import("../crate/pkg").then(module => {
 
       render() {
           return e('nav', {
-              className: 'navbar navbar-expand-md navbar-dark bg-dark'
+              className: 'navbar navbar-expand-md navbar-default'
             },
-            e('a', { className: 'navbar-brand bg-dark text-light' }, 'ECU-Web'),
+            e('a', { className: 'navbar-brand text-light' },
+              e('img', { src: logo, className: 'logo' }),
+              'Fluxkompensator'
+            ),
             e('button', {
                 className: 'navbar-toggler',
                 type: 'button',

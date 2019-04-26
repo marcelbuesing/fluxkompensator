@@ -1,5 +1,3 @@
-#  Based on https://shaneutt.com/blog/rust-fast-small-docker-image-builds/
-
 # ------------------------------------------------------------------------------
 # Cargo Build Stage
 # ------------------------------------------------------------------------------
@@ -16,7 +14,7 @@ RUN npm i -g npm@latest
 # wasm-pack
 RUN curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
-WORKDIR /usr/src/ecuweb
+WORKDIR /usr/src/fluxkompensator
 
 RUN npm install
 
@@ -30,12 +28,9 @@ RUN npm run build
 
 FROM nginx:alpine
 
-COPY --from=wasm-build /usr/src/ecuweb/dist /usr/share/nginx/html
+COPY --from=wasm-build /usr/src/fluxkompensator/dist /usr/share/nginx/html
 
 COPY nginx.conf /usr/share/nginx/nginx.conf
 COPY nginx.conf /etc/nginx/nginx.conf
-
-# COPY mime.types /usr/share/nginx/mime.types
-# COPY mime.types /etc/nginx/mime.types
 
 EXPOSE 80

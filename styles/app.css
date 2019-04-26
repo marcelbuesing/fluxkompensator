@@ -4,6 +4,18 @@ table {
     width: 100%;
 }
 
+.navbar-default, .navbar-brand {
+    background-color:#281f34;
+    background-image: none;
+    background-repeat: no-repeat;
+}
+
+.logo {
+    height: 64px;
+    width: 64px;
+    margin-right: 20px;
+}
+
 .dbc-input-dialog {
     padding: 1vh 1vw 1vh 1vw;
     margin-bottom: 1vh;

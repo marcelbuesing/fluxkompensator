@@ -1,7 +1,7 @@
-# ECU-Web
+# Fluxkompensator
 
-ECU-Web can currently be used as a CAN (database) DBC viewer.
-ECU-Web uses the [can-dbc](https://crates.io/crates/can-dbc) Rust crate for parsing DBC files via WASM.
+Fluxkompensator can currently be used as a CAN (database) DBC viewer.
+It uses the [can-dbc](https://crates.io/crates/can-dbc) Rust crate for parsing DBC files via WASM.
 The DBC content is rendered using React.
 
 Example Screenshot of [J1939](https://en.wikipedia.org/wiki/SAE_J1939) dbc:
@@ -26,6 +26,6 @@ The docker image contains WASM/JS production builds.
 The content is served via an nginx:alpine. Check the [Dockerfile](./Dockerfile) for details.
 
 ```
-docker build -t ecu-web .
-docker run -p 80:80 ecu-web:latest
+docker build -t fluxkompensator .
+docker run -p 80:80 fluxkompensator:latest
 ```
