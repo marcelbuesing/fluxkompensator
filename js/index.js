@@ -3,6 +3,8 @@ import * as ReactDOM from 'react-dom';
 import '../styles/app.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import {MessageSignalSizeDistribution} from './ecu-charts.jsx';
+
 const e = React.createElement;
 
 const hashStringToColor = str => {
@@ -188,7 +190,9 @@ import("../crate/pkg").then(module => {
           signals,
           ),
           e('h4', { key: this.props.id + 'title_payload' }, 'Message Payload'),
-          e(SignalBytes, { signals: this.props.signals })
+          e(SignalBytes, { signals: this.props.signals }),
+          e('h4', { key: this.props.id + 'title_signal_size' }, 'Signal Size Distribution'),
+          e(MessageSignalSizeDistribution, { signals: this.props.signals }),
         );
       }
     }
