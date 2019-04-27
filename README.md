@@ -11,6 +11,19 @@ The DBC content is rendered using React.
 Example Screenshot of [J1939](https://en.wikipedia.org/wiki/SAE_J1939) dbc:
 ![screenshot](/media/screenshot.png)
 
+# Testride
+
+Right now the quickest way to give the Fluxkompensator a testride is running a docker container:
+
+```
+docker run -p 8080:80 marcelbuesing/fluxkompensator:latest
+```
+
+Open the app via <http://localhost:8080> .
+
+You may use the [j1939.dbc](./examples/j1939.dbc) or your own file to give it a try.
+
+
 # Prerequisites
 * Install [wasm-pack](https://github.com/rustwasm/wasm-pack)
 * Install npm
@@ -29,6 +42,12 @@ For more details: WASM Template Tutorial: https://rustwasm.github.io/docs/wasm-p
 The docker image contains WASM/JS production builds.
 The content is served via an nginx:alpine. Check the [Dockerfile](./Dockerfile) for details.
 
+## Run
+```
+docker run -p 80:80 marcelbuesing/fluxkompensator:latest
+```
+
+## Local build
 ```
 docker build -t fluxkompensator .
 docker run -p 80:80 fluxkompensator:latest
