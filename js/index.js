@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from '../logo.jpg'
 
 import {DbcFileInput} from './dbc-file-input.jsx';
+import {DbcRenderingProgress} from './dbc-rendering-progress.jsx';
 import {MessageSignalSizeDistribution} from './ecu-charts.jsx';
 
 const e = React.createElement;
@@ -203,7 +204,8 @@ import("../crate/pkg").then(module => {
         super(props);
 
         this.state = {
-          messages: []
+          messages: [],
+          progress: 0,
         };
 
         this.handleDBCFiles = this.handleDBCFiles.bind(this)
@@ -212,14 +214,21 @@ import("../crate/pkg").then(module => {
       handleDBCFiles(dbcFiles)
       {
           const as_dbcs = dbcFiles.map((dbc_file) => {
-              const reader = new FileReader();
-              reader.onload = () => {
-                const dbc_out = module.from_dbc(reader.result);
-                this.setState({
-                  messages: dbc_out.messages
-                });
-              };
-              reader.readAsText(dbc_file);
+            this.setState({
+              messages: [],
+              progress: 1,
+            });
+
+            const reader = new FileReader();
+            reader.onload = () => {
+
+              const dbc_out = module.from_dbc(reader.result);
+              this.setState({
+                messages: dbc_out.messages,
+                progress: 2,
+              });
+            };
+            reader.readAsText(dbc_file);
           });
       }
 
@@ -232,6 +241,7 @@ import("../crate/pkg").then(module => {
           [
             e(NavBar, {}),
             e(DbcFileInput, { handleDBCFiles: this.handleDBCFiles }),
+            e(DbcRenderingProgress, { progress: this.state.progress }),
             messages
           ]
         );
