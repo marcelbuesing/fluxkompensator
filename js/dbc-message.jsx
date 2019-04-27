@@ -109,38 +109,62 @@ export class DbcMessage extends React.Component {
 
         return (
             <div className="dbc-message">
-                <h2>{this.props.name}</h2>
-                <form>
-                    <div className="form-row">
-                        <FormGroupRow label="CAN-ID" value={this.props.id} />
-                        <FormGroupRow label="Size" value={this.props.size} />
-                        <FormGroupRow label="Transmitter" value={this.props.transmitter} />
+                <div className="card">
+                    <div className="card-header bg-dark text-light">
+                        <h2>{this.props.name}</h2>
                     </div>
-                </form>
-                <h4>Signals</h4>
-                <table className="table table-hover table-light">
-                    <thead className="thead-dark">
-                        <tr>
-                            <th key={this.props.id + 0}></th>
-                            <th key={this.props.id + 1}>Name</th>
-                            <th key={this.props.id + 2}>ByteOrder</th>
-                            <th key={this.props.id + 3}>Factor</th>
-                            <th key={this.props.id + 4}>Min</th>
-                            <th key={this.props.id + 5}>Max</th>
-                            <th key={this.props.id + 6}>MultiplexIndicator</th>
-                            <th key={this.props.id + 7}>Offset</th>
-                            <th key={this.props.id + 8}>Size (bits)</th>
-                            <th key={this.props.id + 9}>Start Bit</th>
-                            <th key={this.props.id + 10}>Unit</th>
-                            <th key={this.props.id + 11}>Value Type</th>
-                        </tr>
-                    </thead>
-                    {signals}
-                </table>
-                <h4>Message Payload</h4>
-                <SignalBytes signals={this.props.signals} />,
-                <h4>Signal Size Distribution</h4>
-                <MessageSignalSizeDistribution signals={this.props.signals} />
+                    <div className="card-body">
+                        <form>
+                            <div className="form-row">
+                                <FormGroupRow label="CAN-ID" value={this.props.id} />
+                                <FormGroupRow label="Size" value={this.props.size} />
+                                <FormGroupRow label="Transmitter" value={this.props.transmitter} />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div className="card">
+                    <div className="card-header border-dark">
+                        <h5>Signals</h5>
+                    </div>
+                    <div className="card-body">
+                        <table className="table table-hover table-light">
+                            <thead className="thead-light">
+                                <tr>
+                                    <th key={this.props.id + 0}></th>
+                                    <th key={this.props.id + 1}>Name</th>
+                                    <th key={this.props.id + 2}>ByteOrder</th>
+                                    <th key={this.props.id + 3}>Factor</th>
+                                    <th key={this.props.id + 4}>Min</th>
+                                    <th key={this.props.id + 5}>Max</th>
+                                    <th key={this.props.id + 6}>MultiplexIndicator</th>
+                                    <th key={this.props.id + 7}>Offset</th>
+                                    <th key={this.props.id + 8}>Size (bits)</th>
+                                    <th key={this.props.id + 9}>Start Bit</th>
+                                    <th key={this.props.id + 10}>Unit</th>
+                                    <th key={this.props.id + 11}>Value Type</th>
+                                </tr>
+                            </thead>
+                            {signals}
+                        </table>
+                    </div>
+                </div>
+                <div className="card">
+                    <div className="card-header border-dark">
+                        <h5>Message Payload</h5>
+                    </div>
+                    <div className="card-body">
+                        <SignalBytes signals={this.props.signals} />
+                    </div>
+                </div>
+                <div className="card">
+                    <div className="card-header border-dark">
+                        <h5>Signal Size Distribution</h5>
+                    </div>
+                    <div className="card-body">
+                        <MessageSignalSizeDistribution signals={this.props.signals} />
+                    </div>
+                </div>
             </div>
         );
     }

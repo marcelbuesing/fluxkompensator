@@ -16,12 +16,7 @@ table {
     margin-right: 20px;
 }
 
-.dbc-input-dialog {
-    padding: 1vh 1vw 1vh 1vw;
-    margin-bottom: 1vh;
-}
 
 .dbc-message {
-    padding: 0.1vh 1vw 1vh 1vw;
-    margin-bottom: 2vh;
+    margin: 2rem 0;
 }
