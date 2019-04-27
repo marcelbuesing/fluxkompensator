@@ -2,65 +2,18 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../styles/app.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import logo from '../logo.jpg'
 
 import {DbcFileInput} from './dbc-file-input.jsx';
 import {DbcRenderingProgress} from './dbc-rendering-progress.jsx';
 import {DbcMessage} from './dbc-message.jsx';
+import {NavBar} from './navbar.jsx';
 
 const e = React.createElement;
 
 import("../crate/pkg").then(module => {
   module.run();
-    class NavBar extends React.Component {
 
-      render() {
-          return e('nav', {
-              className: 'navbar navbar-expand-md navbar-default'
-            },
-            e('a', { className: 'navbar-brand text-light' },
-              e('img', { src: logo, className: 'logo' }),
-              'Fluxkompensator'
-            ),
-            e('button', {
-                className: 'navbar-toggler',
-                type: 'button',
-                'data-toggle': 'collapse',
-                'data-target': '#navbar',
-                'aria-controls': 'navbar',
-                'aria-expanded': false,
-                'aria-label': 'Toggle navigation'
-              },
-              e('span', { className: 'navbar-toggler-icon' })
-            ),
-            e('div', {
-                className: 'collapse navbar-collapse',
-                id: 'navbar'
-              },
-              e('ul', { className: 'navbar-nav mr-auto' },
-                e('li', { className: 'nav-item active'},
-                  e('a', {
-                      key: 'dbc',
-                      className: 'nav-link',
-                    }, 'DBC'
-                  )
-                ),
-                e('li', { className: 'nav-item'},
-                  e('a', {
-                      key: '...',
-                      className: 'nav-link',
-                    }, '...'
-                  )
-                )
-              )
-            )
-          )
-      }
-
-    }
-
-
-    class App extends React.Component {
+  class App extends React.Component {
 
       constructor(props) {
         super(props);

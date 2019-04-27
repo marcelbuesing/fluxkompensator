@@ -46,15 +46,15 @@ class SignalBytes extends React.Component {
         const bits = PAYLOAD_BITS.reduce((acc, bitIndex) => {
             const color = bit_color_map[bitIndex];
             if (color == null) {
-                const col = (<th> key={'th' + this.props.id + bitIndex}>{bitIndex}</th>);
+                const col = (<th key={'th' + this.props.id + bitIndex}>{bitIndex}</th>);
                 acc.currentRow.push(col);
             } else {
-                const col = (<th> key={'th' + this.props.id + bitIndex} style: {{ backgroundColor: color }}>{bitIndex}</th>);
+                const col = (<th key={'th' + this.props.id + bitIndex} style={{ backgroundColor: color }}>{bitIndex}</th>);
                 acc.currentRow.push(col);
             }
 
             if (bitIndex % 8 == 7) {
-                const newRow = (<tr> key={'tr' + this.props.id + bitIndex}>{acc.currentRow}</tr>);
+                const newRow = (<tr key={'tr' + this.props.id + bitIndex}>{acc.currentRow}</tr>);
                 acc.rows.push(newRow);
                 acc.currentRow = [];
             }
