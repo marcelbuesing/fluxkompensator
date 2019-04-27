@@ -77,6 +77,10 @@ class DbcSignal extends React.Component {
     render() {
         const signalHash = this.props.name + this.props.offset + this.props.signal_size + this.props.start_bit;
         const headerStyle = { backgroundColor: hashStringToColor(signalHash) };
+        let multiplex_indicator = this.props.multiplexer_indicator;
+        if (typeof this.props.multiplexer_indicator === 'object') {
+            multiplex_indicator = "Multiplexed Signal (" + this.props.multiplexer_indicator.MultiplexedSignal + ")";
+        }
         return (<tbody>
             <tr>
                 <th style={headerStyle}></th>
@@ -85,7 +89,7 @@ class DbcSignal extends React.Component {
                 <td key="factor">{this.props.factor}</td>
                 <td key="min">{this.props.min}</td>
                 <td key="max">{this.props.max}</td>
-                <td key="multiplex_indicator">{this.props.multiplexer_indicator}</td>
+                <td key="multiplex_indicator">{multiplex_indicator}</td>
                 <td key="offset">{this.props.offset}</td>
                 <td key="signal_size">{this.props.signal_size}</td>
                 <td key="start_bit">{this.props.start_bit}</td>
