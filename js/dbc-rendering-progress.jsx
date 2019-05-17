@@ -4,7 +4,7 @@ import Dropzone from 'react-dropzone';
 export class DbcRenderingProgress extends React.Component {
     render() {
         const {progress} = this.props;
-        const progressMaxSteps = 2;
+        const progressMaxSteps = 3;
         const widthProgress = progress * (100 / progressMaxSteps) + '%';
         return (
             <div className="progress">

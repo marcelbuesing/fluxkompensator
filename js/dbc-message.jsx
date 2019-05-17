@@ -94,8 +94,8 @@ class DbcSignal extends React.Component {
                 <td key="signal_size">{this.props.signal_size}</td>
                 <td key="start_bit">{this.props.start_bit}</td>
                 <td key="unit">{this.props.unit}</td>
-                <td key="value_type">{this.props.value_typ}</td>
-
+                <td key="value_type">{this.props.value_type}</td>
+                <td key="value_type">{this.props.comment}</td>
             </tr>
         </tbody>
         );
@@ -107,6 +107,7 @@ export class DbcMessage extends React.Component {
         const signals = this.props.signals.map((signal) => {
             return e(DbcSignal, {
                 key: signal.name,
+                comment: this.props.signalCommentMap.get("" + this.props.id + signal.name),
                 ...signal
             });
         });
@@ -116,6 +117,7 @@ export class DbcMessage extends React.Component {
                 <div className="card">
                     <div className="card-header bg-dark text-light">
                         <h2>{this.props.name}</h2>
+                        {this.props.comment}
                     </div>
                     <div className="card-body">
                         <form>
@@ -147,6 +149,7 @@ export class DbcMessage extends React.Component {
                                     <th key={this.props.id + 9}>Start Bit</th>
                                     <th key={this.props.id + 10}>Unit</th>
                                     <th key={this.props.id + 11}>Value Type</th>
+                                    <th key={this.props.id + 12}>Comment</th>
                                 </tr>
                             </thead>
                             {signals}
