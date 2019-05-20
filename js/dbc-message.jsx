@@ -112,6 +112,8 @@ export class DbcMessage extends React.Component {
             });
         });
 
+        const can_id = "0x" + this.props.id.toString(16) + " (" + this.props.id + ")";
+
         return (
             <div className="dbc-message">
                 <div className="card">
@@ -122,7 +124,7 @@ export class DbcMessage extends React.Component {
                     <div className="card-body">
                         <form>
                             <div className="form-row">
-                                <FormGroupRow label="CAN-ID" value={this.props.id} />
+                                <FormGroupRow label="CAN-ID" value={can_id} />
                                 <FormGroupRow label="Size" value={this.props.size} />
                                 <FormGroupRow label="Transmitter" value={this.props.transmitter} />
                             </div>
